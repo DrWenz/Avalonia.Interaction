@@ -1,0 +1,116 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:Avalonia.Interaction.Controls"
+        mc:Ignorable="d"
+        d:DesignWidth="500"
+        d:DesignHeight="450"
+        x:Class="Avalonia.Interaction.Controls.DialogWindow"
+        Width="500"
+        Height="NaN"
+        WindowStartupLocation="CenterScreen"
+        SystemDecorations="BorderOnly"
+        ExtendClientAreaToDecorationsHint="True"
+        Title="DialogWindow"
+        Background="#f8f8f8"
+        Opacity="0">
+
+    <Window.Styles>
+        <Style Selector="TextBlock.alert">
+            <Setter Property="Foreground"
+                    Value="#960018" />
+        </Style>
+        <Style Selector="Button.alert">
+            <Setter Property="Cursor"
+                    Value="Hand" />
+        </Style>
+        <Style Selector="Button.alert /template/ ContentPresenter">
+            <Setter Property="Background"
+                    Value="#CC960018" />
+            <Setter Property="TextBlock.Foreground"
+                    Value="White" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+        </Style>
+        <Style Selector="Button.alert:pointerover /template/ ContentPresenter">
+            <Setter Property="Background"
+                    Value="#960018" />
+            <Setter Property="TextBlock.Foreground"
+                    Value="White" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+        </Style>
+        <Style Selector="Button.ok">
+            <Setter Property="Background"
+                    Value="#CC153E6D" />
+            <Setter Property="Foreground"
+                    Value="White" />
+        </Style>
+        <Style Selector="Button.ok:pointerover /template/ ContentPresenter">
+            <Setter Property="Background"
+                    Value="#153E6D" />
+            <Setter Property="TextBlock.Foreground"
+                    Value="White" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+        </Style>
+        <Style Selector="Button.answerA" />
+        <Style Selector="Button.answerB">
+            <Setter Property="Background"
+                    Value="#CC153E6D" />
+            <Setter Property="Foreground"
+                    Value="White" />
+        </Style>
+        <Style Selector="Button.answerB:pointerover /template/ ContentPresenter">
+            <Setter Property="Background"
+                    Value="#153E6D" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Setter Property="TextBlock.Foreground"
+                    Value="White" />
+        </Style>
+    </Window.Styles>
+
+    <Grid x:Name="PartGrid"
+          RowDefinitions="Auto, Auto"
+          VerticalAlignment="Top">
+        <Border Grid.Row="0"
+                Background="White"
+                VerticalAlignment="Top"
+                BoxShadow="0 0 15 1 #0D22292F">
+            <TextBlock x:Name="PartHeader"
+                       TextWrapping="Wrap"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       Margin="20,10,10,10" />
+        </Border>
+        <Grid Grid.Row="1"
+              RowDefinitions="Auto, 60"
+              Margin="20,20,20,0"
+              VerticalAlignment="Top">
+            <TextBlock x:Name="PartContent"
+                       Grid.Row="0"
+                       TextWrapping="Wrap" />
+            <StackPanel Grid.Row="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button x:Name="PartBtnAnswerA"
+                        Classes="answerA"
+                        Command="{Binding CloseDialog}"
+                        CommandParameter="{x:Static controls:DialogAnswer.AnswerA}" />
+                <Button x:Name="PartBtnAnswerB"
+                        Classes="answerB"
+                        Command="{Binding CloseDialog}"
+                        CommandParameter="{x:Static controls:DialogAnswer.AnswerB}"
+                        Margin="15,0,0,0" />
+                <Button x:Name="PartBtnOk"
+                        Classes="ok"
+                        Content="OK"
+                        Command="{Binding CloseDialog}"
+                        CommandParameter="{x:Static controls:DialogAnswer.Ok}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

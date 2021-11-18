@@ -1,0 +1,16 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Avalonia.Interaction"
+             x:Class="Avalonia.Interaction.App">
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Resources>
+        <Color x:Key="Test">#153E6D</Color>
+    </Application.Resources>
+
+    <Application.Styles>
+        <FluentTheme Mode="Light" />
+    </Application.Styles>
+</Application>

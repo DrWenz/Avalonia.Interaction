@@ -1,0 +1,35 @@
+<controls:CustomWindow xmlns="https://github.com/avaloniaui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:viewModels="clr-namespace:Avalonia.Interaction.ViewModels"
+                       xmlns:controls="clr-namespace:Avalonia.Interaction.Controls"
+                       mc:Ignorable="d"
+                       Width="450"
+                       Height="250"
+                       x:Class="Avalonia.Interaction.Views.SplashScreen"
+                       Icon="/Assets/avalonia-logo.ico"
+                       Title="Avalonia.Interaction"
+                       ShowInTaskbar="True"
+                       WindowStartupLocation="CenterScreen"
+                       SystemDecorations="BorderOnly"
+                       ExtendClientAreaToDecorationsHint="True"
+                       LoadedCommand="{Binding Test}">
+    <Window.DataContext>
+        <viewModels:SplashScreenViewModel />
+    </Window.DataContext>
+    <Grid>
+        <StackPanel Orientation="Vertical"
+                    Margin="20">
+            <TextBlock Text="LOGIN or Splashscreen" />
+            <Button Content="Close"
+                    Command="{Binding Cancel}" />
+            <Button Content="Login"
+                    Command="{Binding Login}" />
+            <Button Content="Test"
+                    Click="Button_OnClick"/>
+            <TextBox x:Name="TxtUserName"
+                     Width="250"/>
+        </StackPanel>
+    </Grid>
+</controls:CustomWindow>
